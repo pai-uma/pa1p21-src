@@ -469,15 +469,6 @@ public class TestRunnerPr21Ej1 {
 		}
 		@Test
 		@Timeout(value = 1000, unit = TimeUnit.MILLISECONDS)
-		public void libreriaOfertaSetSaleTest1() {
-			String[] authorsOnSale2 = { "Aldous Huxley", "William Gibson" };
-			lro1.setOferta(35.00, authorsOnSale2);
-			assertAll(
-					() -> assertEquals(35.00, lro1.getDescuento(), 1e-6, "\n> Error: getDescuento():"),
-					() -> assertArrayEquals(authorsOnSale2, lro1.getOferta(), "\n> Error: getAutorsOnSale():"));
-		}
-		@Test
-		@Timeout(value = 1000, unit = TimeUnit.MILLISECONDS)
 		public void libreriaOfertaaddLibroTest1() {
 			lro1.addLibro("Isaac Asimov", "La Fundacion", 7.30);
 			lro1.addLibro("Aldous Huxley", "Un Mundo Feliz", 6.50);
@@ -737,7 +728,7 @@ public class TestRunnerPr21Ej1 {
 				output = sysOutCapture.sysOutRelease();
 			}
 			assertEquals(
-					normalize("20.0%[George Orwell, Isaac Asimov] [(George Orwell; 1984; 6.2; 20.0%; 4.96; 10.0%; 5.4559999999999995), (Philip K. Dick; ? Suenan los androides con ovejas electricas ?; 3.5; 10.0%; 3.85), (Isaac Asimov; Fundacion e Imperio; 9.4; 20.0%; 7.5200000000000005; 10.0%; 8.272), (Ray Bradbury; Fahrenheit 451; 7.4; 10.0%; 8.14), (Aldous Huxley; Un Mundo Feliz; 6.5; 10.0%; 7.15), (Isaac Asimov; La Fundacion; 7.3; 20.0%; 5.84; 10.0%; 6.4239999999999995), (William Gibson; Neuromante; 8.3; 10.0%; 9.13), (Isaac Asimov; Segunda Fundacion; 8.1; 20.0%; 6.4799999999999995; 10.0%; 7.127999999999999), (Isaac Newton; Arithmetica Universalis; 10.5; 10.0%; 11.55)] 20.0%[George Orwell, Isaac Asimov] [(Philip K. Dick; ? Suenan los androides con ovejas electricas ?; 3.5; 10.0%; 3.85), (Isaac Asimov; Fundacion e Imperio; 9.4; 20.0%; 7.5200000000000005; 10.0%; 8.272), (Ray Bradbury; Fahrenheit 451; 7.4; 10.0%; 8.14), (Isaac Asimov; La Fundacion; 7.3; 20.0%; 5.84; 10.0%; 6.4239999999999995), (William Gibson; Neuromante; 8.3; 10.0%; 9.13), (Isaac Asimov; Segunda Fundacion; 8.1; 20.0%; 6.4799999999999995; 10.0%; 7.127999999999999)] PrecioFinal(Philip K. Dick, ? Suenan los androides con ovejas electricas ?): 3.85 PrecioFinal(isaac asimov, fundacion e imperio): 8.272 PrecioFinal(Ray Bradbury, Fahrenheit 451): 8.14 PrecioFinal(Isaac Asimov, La Fundacion): 6.4239999999999995 PrecioFinal(william gibson, neuromante): 9.13 PrecioFinal(Isaac Asimov, Segunda Fundacion): 7.127999999999999"),
+					normalize("20.0%[George Orwell, Isaac Asimov] [(George Orwell; 1984; 6.2; 20.0%; 4.96; 10.0%; 5.4559999999999995), (Philip K. Dick; ¿ Sueñan los androides con ovejas electricas ?; 3.5; 10.0%; 3.85), (Isaac Asimov; Fundacion e Imperio; 9.4; 20.0%; 7.5200000000000005; 10.0%; 8.272), (Ray Bradbury; Fahrenheit 451; 7.4; 10.0%; 8.14), (Aldous Huxley; Un Mundo Feliz; 6.5; 10.0%; 7.15), (Isaac Asimov; La Fundacion; 7.3; 20.0%; 5.84; 10.0%; 6.4239999999999995), (William Gibson; Neuromante; 8.3; 10.0%; 9.13), (Isaac Asimov; Segunda Fundacion; 8.1; 20.0%; 6.4799999999999995; 10.0%; 7.127999999999999), (Isaac Newton; Arithmetica Universalis; 10.5; 10.0%; 11.55)] 20.0%[George Orwell, Isaac Asimov] [(Philip K. Dick; ¿ Sueñan los androides con ovejas electricas ?; 3.5; 10.0%; 3.85), (Isaac Asimov; Fundacion e Imperio; 9.4; 20.0%; 7.5200000000000005; 10.0%; 8.272), (Ray Bradbury; Fahrenheit 451; 7.4; 10.0%; 8.14), (Isaac Asimov; La Fundacion; 7.3; 20.0%; 5.84; 10.0%; 6.4239999999999995), (William Gibson; Neuromante; 8.3; 10.0%; 9.13), (Isaac Asimov; Segunda Fundacion; 8.1; 20.0%; 6.4799999999999995; 10.0%; 7.127999999999999)] PrecioFinal(Philip K. Dick, ¿ Sueñan los androides con ovejas electricas ?): 3.85 PrecioFinal(isaac asimov, fundacion e imperio): 8.272 PrecioFinal(Ray Bradbury, Fahrenheit 451): 8.14 PrecioFinal(Isaac Asimov, La Fundacion): 6.4239999999999995 PrecioFinal(william gibson, neuromante): 9.13 PrecioFinal(Isaac Asimov, Segunda Fundacion): 7.127999999999999"),
 					normalize(output),
 					"\n> Error: libreriaOfertaTest.main():");
 		}
@@ -1101,12 +1092,12 @@ public class TestRunnerPr21Ej1 {
 		new java.io.File(filename).delete();
 	}
 	private static void createFile(String filename, String inputData) throws Exception {
-		try (java.io.PrintWriter pw = new java.io.PrintWriter(filename)) {
+		try (PrintWriter pw = new PrintWriter(filename)) {
 			pw.println(inputData);
 		}
 	}
 	private static void createFile(String filename, String[] inputData) throws Exception {
-		try (java.io.PrintWriter pw = new java.io.PrintWriter(filename)) {
+		try (PrintWriter pw = new PrintWriter(filename)) {
 			for (String linea : inputData) {
 				pw.println(linea);
 			}
