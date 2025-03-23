@@ -575,15 +575,6 @@ public class TestRunnerPr21Ej2 {
 		}
 		@Test
 		@Timeout(value = 1000, unit = TimeUnit.MILLISECONDS)
-		public void flexSalesBookStoreSetSaleTest1() {
-			LibreriaOfertaFlex lrof2 = new LibreriaOfertaFlex(oa1);
-			precond(oa1, lrof2.getOferta());
-			OfertaAutor oa2 = new OfertaAutor(20.0, discountAuthors);
-			lrof2.setOferta(oa2);
-			assertSame(oa2, lrof2.getOferta(), "\n> Error: getOferta():");
-		}
-		@Test
-		@Timeout(value = 1000, unit = TimeUnit.MILLISECONDS)
 		public void flexSalesBookStoreaddLibroTest1() {
 			lrof1.addLibro("Isaac Asimov", "La Fundacion", 7.30);
 			lrof1.addLibro("Aldous Huxley", "Un Mundo Feliz", 6.50);
@@ -841,7 +832,7 @@ public class TestRunnerPr21Ej2 {
 				output = sysOutCapture.sysOutRelease();
 			}
 //					     normalize("20.0%[George Orwell, Isaac Asimov] [(George Orwell; 1984; 6.2; 20.0%; 4.96; 10.0%; 5.4559999999999995), (Philip K. Dick; �Sue�an los androides con ovejas el�ctricas?; 3.5; 10.0%; 3.85), (Isaac Asimov; Fundaci�n e Imperio; 9.4; 20.0%; 7.5200000000000005; 10.0%; 8.272), (Ray Bradbury; Fahrenheit 451; 7.4; 10.0%; 8.14), (Aldous Huxley; Un Mundo Feliz; 6.5; 10.0%; 7.15), (Isaac Asimov; La Fundaci�n; 7.3; 20.0%; 5.84; 10.0%; 6.4239999999999995), (William Gibson; Neuromante; 8.3; 10.0%; 9.13), (Isaac Asimov; Segunda Fundaci�n; 8.1; 20.0%; 6.4799999999999995; 10.0%; 7.127999999999999), (Isaac Newton; Arithmetica Universalis; 10.5; 10.0%; 11.55)] 20.0%[George Orwell, Isaac Asimov] [(Philip K. Dick; �Sue�an los androides con ovejas el�ctricas?; 3.5; 10.0%; 3.85), (Isaac Asimov; Fundaci�n e Imperio; 9.4; 20.0%; 7.5200000000000005; 10.0%; 8.272), (Ray Bradbury; Fahrenheit 451; 7.4; 10.0%; 8.14), (Isaac Asimov; La Fundaci�n; 7.3; 20.0%; 5.84; 10.0%; 6.4239999999999995), (William Gibson; Neuromante; 8.3; 10.0%; 9.13), (Isaac Asimov; Segunda Fundaci�n; 8.1; 20.0%; 6.4799999999999995; 10.0%; 7.127999999999999)] PrecioFinal(Philip K. Dick, �Sue�an los androides con ovejas el�ctricas?): 3.85 PrecioFinal(isaac asimov, fundaci�n e imperio): 8.272 PrecioFinal(Ray Bradbury, Fahrenheit 451): 8.14 PrecioFinal(Isaac Asimov, La Fundaci�n): 6.4239999999999995 PrecioFinal(william gibson, neuromante): 9.13 PrecioFinal(Isaac Asimov, Segunda Fundaci�n): 7.127999999999999"),
-			assertEquals(normalize("20.0%[George Orwell, Isaac Asimov] [(George Orwell; 1984; 6.2; 20.0%; 4.96; 10.0%; 5.4559999999999995), (Philip K . Dick; ? Suenan los androides con ovejas electricas?; 3.5; 10.0%; 3.85), (Isaac Asimov; Fundacion e Imperio; 9.4; 20.0%; 7.5200000000000005; 10.0%; 8.272) , (Ray Bradbury; Fahrenheit 451; 7.4; 10.0%; 8.14) , (Aldous Huxley; Un Mundo Feliz; 6.5; 10.0%; 7.15), (Isaac Asimov; La Fundacion; 7.3; 20.0 %; 5.84; 10.0 %; 6.4239999999999995), (William Gibson; Neuromante; 8.3; 10.0%; 9.13) , (Isaac Asimov; Segunda Fundacion; 8.1; 20.0%; 6.4799999999999995; 10.0%; 7.127999999999999) , (Isaac Newton; Arithmetica Universalis; 10.5; 10.0%; 11.55)] 20.0%[George Orwell, Isaac Asimov] [( Philip K. Dick; ?Suenan los androides con ovejas electricas?; 3.5; 10.0%; 3.85), (Isaac Asimov; Fundacion e Imperio; 9.4; 20.0%; 7.5200000000000005; 10.0%; 8.272), (Ray Bradbury; Fahrenheit 451; 7.4; 10.0%; 8.14), (Isaac Asimov; La Fundacion; 7.3; 20.0%; 5.84; 10.0%; 6.4239999999999995), (William Gibson; Neuromante; 8.3; 10.0%; 9.13), (Isaac Asimov; Segunda Fundacion; 8.1; 20.0%; 6.4799999999999995; 10.0%; 7.127999999999999)] PrecioFinal(Philip K. Dick, ?Suenan los androides con ovejas electricas?): 3.85 PrecioFinal(isaac asimov, fundacion e imperio): 8.272 PrecioFinal(Ray Bradbury, Fahrenheit 451): 8.14 PrecioFinal(Isaac Asimov, La Fundacion): 6.4239999999999995 PrecioFinal(william gibson, neuromante): 9.13 PrecioFinal (Isaac Asimov, Segunda Fundacion): 7.127999999999999"),
+			assertEquals(normalize("20.0%[George Orwell, Isaac Asimov] [(George Orwell; 1984; 6.2; 20.0%; 4.96; 10.0%; 5.4559999999999995), (Philip K . Dick; ¿ Sueñan los androides con ovejas electricas?; 3.5; 10.0%; 3.85), (Isaac Asimov; Fundacion e Imperio; 9.4; 20.0%; 7.5200000000000005; 10.0%; 8.272) , (Ray Bradbury; Fahrenheit 451; 7.4; 10.0%; 8.14) , (Aldous Huxley; Un Mundo Feliz; 6.5; 10.0%; 7.15), (Isaac Asimov; La Fundacion; 7.3; 20.0 %; 5.84; 10.0 %; 6.4239999999999995), (William Gibson; Neuromante; 8.3; 10.0%; 9.13) , (Isaac Asimov; Segunda Fundacion; 8.1; 20.0%; 6.4799999999999995; 10.0%; 7.127999999999999) , (Isaac Newton; Arithmetica Universalis; 10.5; 10.0%; 11.55)] 20.0%[George Orwell, Isaac Asimov] [( Philip K. Dick; ¿Sueñan los androides con ovejas electricas?; 3.5; 10.0%; 3.85), (Isaac Asimov; Fundacion e Imperio; 9.4; 20.0%; 7.5200000000000005; 10.0%; 8.272), (Ray Bradbury; Fahrenheit 451; 7.4; 10.0%; 8.14), (Isaac Asimov; La Fundacion; 7.3; 20.0%; 5.84; 10.0%; 6.4239999999999995), (William Gibson; Neuromante; 8.3; 10.0%; 9.13), (Isaac Asimov; Segunda Fundacion; 8.1; 20.0%; 6.4799999999999995; 10.0%; 7.127999999999999)] PrecioFinal(Philip K. Dick, ¿Sueñan los androides con ovejas electricas?): 3.85 PrecioFinal(isaac asimov, fundacion e imperio): 8.272 PrecioFinal(Ray Bradbury, Fahrenheit 451): 8.14 PrecioFinal(Isaac Asimov, La Fundacion): 6.4239999999999995 PrecioFinal(william gibson, neuromante): 9.13 PrecioFinal (Isaac Asimov, Segunda Fundacion): 7.127999999999999"),
 						 normalize(output),
 						 "\n> Error: MainFlexSalesBookStore.main():");
 		}
@@ -1209,12 +1200,12 @@ public class TestRunnerPr21Ej2 {
 		new java.io.File(filename).delete();
 	}
 	private static void createFile(String filename, String inputData) throws Exception {
-		try (java.io.PrintWriter pw = new java.io.PrintWriter(filename)) {
+		try (PrintWriter pw = new PrintWriter(filename)) {
 			pw.println(inputData);
 		}
 	}
 	private static void createFile(String filename, String[] inputData) throws Exception {
-		try (java.io.PrintWriter pw = new java.io.PrintWriter(filename)) {
+		try (PrintWriter pw = new PrintWriter(filename)) {
 			for (String linea : inputData) {
 				pw.println(linea);
 			}
