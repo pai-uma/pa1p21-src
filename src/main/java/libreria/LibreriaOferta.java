@@ -15,15 +15,6 @@ public class LibreriaOferta extends Libreria {
 	 * @param autores	Array con autores en descuento
 	 */
 	public LibreriaOferta(double desc, String[] autores) {
-		setOferta(desc,autores);
-	}
-	
-	/**
-	 * Cambia los atributos de oferta: descuento y lista de autores
-	 * @param desc	Porcentaje con descuento
-	 * @param autores	Array con los autores en descuento
-	 */
-	public void setOferta(double desc, String[] autores) {
 		if (desc < 0) 
 			throw new RuntimeException("El porcentaje de descuento no puede ser negativo");
 		porcDescuento = desc;
